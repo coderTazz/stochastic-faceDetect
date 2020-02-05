@@ -1,6 +1,5 @@
 # *coderTazz
-# python script to create n train and m test samples from FDDB for this repo
-# number of samples required can be passed as arguments
+# python script to create pos and neg samples
 
 
 # Imports
@@ -31,8 +30,6 @@ extensionSTR = ".jpg"
 ellipseSTR = "ellipse"
 resolution = 20
 dice = 0
-n = 1000
-m = 100
 
 
 
