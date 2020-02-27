@@ -22,8 +22,10 @@ TRAIN_POS_PATH = '../../savedPics/train/pos/'
 TRAIN_NEG_PATH = '../../savedPics/train/neg/'
 TEST_POS_PATH = '../../savedPics/test/pos/'
 TEST_NEG_PATH = '../../savedPics/test/neg/'
-countOfPos = 0
-countOfNeg = 0
+countOfPosInTrain = 0
+countOfPosInTest = 0
+countOfNegInTrain = 0
+countOfNegInTest = 0
 posSTR = 'pos'
 negSTR = 'neg'
 extensionSTR = ".jpg"
@@ -36,8 +38,10 @@ dice = 0
 # Crop positive and negative patches, then save
 def cropAndSave(annotations, im):
 	
-	global countOfPos
-	global countOfNeg
+	global countOfPosInTrain
+	global countOfPosInTest
+	global countOfNegInTrain
+	global countOfNegInTest
 	global dice
 
 	for ellipse in annotations:
@@ -74,14 +78,14 @@ def cropAndSave(annotations, im):
 			# Positive Sample
 			patch = im.crop(bboxPos)
 			patch = patch.resize((resolution, resolution))
-			patch.save(TRAIN_POS_PATH + posSTR + str(countOfPos) + extensionSTR, dpi = (resolution, resolution))
-			countOfPos += 1
+			patch.save(TRAIN_POS_PATH + posSTR + str(countOfPosInTrain) + extensionSTR, dpi = (resolution, resolution))
+			countOfPosInTrain += 1
 
 			# Negative Sample
 			patch = im.crop(bboxNeg)
 			patch = patch.resize((resolution, resolution))
-			patch.save(TRAIN_NEG_PATH + negSTR + str(countOfNeg) + extensionSTR, dpi = (resolution, resolution))
-			countOfNeg += 1
+			patch.save(TRAIN_NEG_PATH + negSTR + str(countOfNegInTrain) + extensionSTR, dpi = (resolution, resolution))
+			countOfNegInTrain += 1
 
 			dice += 1
 
@@ -91,14 +95,14 @@ def cropAndSave(annotations, im):
 			# Positive Sample
 			patch = im.crop(bboxPos)
 			patch = patch.resize((resolution, resolution))
-			patch.save(TEST_POS_PATH + posSTR + str(countOfPos) + extensionSTR, dpi = (resolution, resolution))
-			countOfPos += 1
+			patch.save(TEST_POS_PATH + posSTR + str(countOfPosInTest) + extensionSTR, dpi = (resolution, resolution))
+			countOfPosInTest += 1
 
 			# Negative Sample
 			patch = im.crop(bboxNeg)
 			patch = patch.resize((resolution, resolution))
-			patch.save(TEST_NEG_PATH + negSTR + str(countOfNeg) + extensionSTR, dpi = (resolution, resolution))
-			countOfNeg += 1
+			patch.save(TEST_NEG_PATH + negSTR + str(countOfNegInTest) + extensionSTR, dpi = (resolution, resolution))
+			countOfNegInTest += 1
 
 			dice += 1
 
