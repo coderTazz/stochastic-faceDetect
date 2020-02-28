@@ -24,7 +24,7 @@ It is assumed that you are inside the stochastic-FaceDetect folder.
 
 `python3 prepareFDDBData.py`
 
-Note that the 20x20x3 patches are already present in this repo. The above instructions need to be followed only if creating new patches. Else, proceed to the main experiment.
+<!-- Note that the 20x20x3 patches are already present in this repo. The above instructions need to be followed only if creating new patches. Else, proceed to the main experiment. -->
 
 ### Main Experiment
 *	Options for model_type:
